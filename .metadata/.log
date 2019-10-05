@@ -1,0 +1,91 @@
+!SESSION 2019-10-04 18:04:09.813 -----------------------------------------------
+eclipse.buildId=4.4.0.201909171436-RELEASE
+java.version=13
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4 -product org.springframework.boot.ide.branding.sts4 -keyring /Users/kvazir/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springframework.boot.ide.branding.sts4 -data /Users/kvazir/Desktop/springPlatform -product org.springframework.boot.ide.branding.sts4 -keyring /Users/kvazir/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2019-10-04 18:04:18.606
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2019-10-04 18:04:24.160
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-10-04 18:04:24.160
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2114eb1a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7e514482,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2019-10-04 18:11:38.557
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:20:49.615
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:20:49.618
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@236a6a2a[org.springframework.tooling.boot.ls:1.11.0.201909171347(id=626)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:20:49.619
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:20:49.875
+!MESSAGE Instantiating ReusableClasspathListenerHandler
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.349
+!MESSAGE Boot LS startup time from start to initialized: 13710ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.507
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.cVZCkGLfisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.526
+!MESSAGE subscribing to classpath changes: sts4.classpath.cVZCkGLf isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.538
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.541
+!MESSAGE subsribers = {sts4.classpath.cVZCkGLf=Send Classpath Notifications(134)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.541
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.542
+!MESSAGE project firstproject ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.543
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.543
+!MESSAGE Preparing classpath changed notification firstproject
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.544
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.cVZCkGLf => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.544
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.556
+!MESSAGE classpath=64 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.557
+!MESSAGE buffering callback sts4.classpath.cVZCkGLf firstproject false 64
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.558
+!MESSAGE executing callback sts4.classpath.cVZCkGLf 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-10-04 18:21:03.647
+!MESSAGE executing callback sts4.classpath.cVZCkGLf SUCCESS [done]
