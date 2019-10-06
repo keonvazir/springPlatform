@@ -26,4 +26,9 @@ public class DojoController{
 	public String showJose(@PathVariable("dojo") String dojo, @PathVariable("burbank-dojo") String burbankDojo, @PathVariable("san-jose") String sanJose) {
 		return "I live in San Jose, he lives in Burbank!";
 	}
+	@RequestMapping("/{dojo}/{burbank-dojo}/{san-jose}/{firstname}/{lastname}")
+	public String showHome(@PathVariable("dojo") String dojo, @PathVariable("burbank-dojo") String burbankDojo, @PathVariable("san-jose") String sanJose, @PathVariable("firstname") String firstname, @PathVariable("lastname") String lastname) {
+		return "I live in San Jose, he lives in Burbank! " + firstname + " " + lastname;
+	
+}
 }
