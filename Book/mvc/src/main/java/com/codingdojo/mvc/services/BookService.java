@@ -32,7 +32,6 @@ public class BookService {
         }
     }
 	public Book updateBook(Long id, String title, String desc, String lang, Integer numOfPages) {
-		// TODO Auto-generated method stub
 		Book new_book = findBook(id);
 		if(new_book == null) {
 		return null;
@@ -45,7 +44,6 @@ public class BookService {
 		return bookRepository.save(new_book);
 	}
 	public void deleteBook(Long id) {
-		// TODO Auto-generated method stub
 		
 		bookRepository.deleteById(id);
 	}
