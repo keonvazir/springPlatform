@@ -3,6 +3,8 @@ package com.codingdojo.mvc.services;
 import java.util.List;
 import java.util.Optional;
 
+//import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 import com.codingdojo.mvc.models.Book;
 import com.codingdojo.mvc.repositories.BookRepository;
@@ -19,8 +21,8 @@ public class BookService {
         return bookRepository.findAll();
     }
     // creates a book
-    public Book createBook(Book b) {
-        return bookRepository.save(b);
+    public Book createOrUpdateBook(Book book) {
+        return bookRepository.save(book);
     }
     // retrieves a book
     public Book findBook(Long id) {
@@ -44,7 +46,9 @@ public class BookService {
 		return bookRepository.save(new_book);
 	}
 	public void deleteBook(Long id) {
-		
-		bookRepository.deleteById(id);
-	}
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        if(optionalBook.isPresent()) {
+            bookRepository.deleteById(id);
+        }
+    }
 }
