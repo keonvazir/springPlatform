@@ -29,7 +29,7 @@
             <td><c:out value="${book.description}"/></td>
             <td><c:out value="${book.language}"/></td>
             <td><c:out value="${book.numberOfPages}"/></td>
-            <td><a href="/show/${book.id}">| Show |</a></td>
+            <td><a href="books/show/${book.id}">| Show |</a></td>
         </tr>
         </c:forEach>
     </tbody>
