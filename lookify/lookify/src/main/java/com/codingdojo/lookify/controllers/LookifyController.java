@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.lookify.models.Lookify;
 import com.codingdojo.lookify.services.LookifyService;
@@ -35,16 +37,15 @@ public class LookifyController {
 		model.addAttribute("song", new Lookify());
 		return "dashboard.jsp";
 	}
-	@RequestMapping("/search/{name}")
-	public String searchName(@PathVariable("name") String name) {
-		return "/artist.jsp";
-	}
+	
 	@RequestMapping("/search/topTen")
 	public String topTen() {
 		return "topten.jsp";
 	}
 	@RequestMapping("/songs/{id}")
-	public String show(@PathVariable("id") Long id) {
+	public String show(@PathVariable("id") Long id, Model model) {
+		Lookify song = lookifyService.findSong(id);
+		model.addAttribute("song", song);
 		return "/show.jsp";
 	}
 	@RequestMapping("/songs/new")
@@ -64,5 +65,27 @@ public class LookifyController {
 			return "redirect:/dashboard";
 		}
 	}
+	
+	
+	@PostMapping("/search")
+	public String artistName(Model model, @RequestParam(value="artist") String artist) {
+		
+	}
+	
+	@RequestMapping("/search")
+	public String searchName(@RequestParam("artist") String artist, Model model) {
+		List<Lookify> artistSongs = lookifyService.findByArtist(artist);
+		model.addAttribute("artistSongs", artistSongs);
+		return "/artist.jsp";
+	}
+	@Controller
+    public class SongsController {
+        // other methods removed for brevity
+        @RequestMapping(value="/songs/{id}", method=RequestMethod.DELETE)
+        public String destroy(@PathVariable("id") Long id) {
+            lookifyService.deleteSong(id);
+            return "redirect:/dashboard";
+        }
+    }
 	
 }

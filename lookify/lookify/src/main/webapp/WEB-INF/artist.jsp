@@ -8,14 +8,13 @@
 <title>Search</title>
 </head>
 <body>
-<p>Songs by artist</p><a href="/dashboard">Dashboard</a>
+<p>Songs by <c:out value="${artist}"/> </p><a href="/dashboard">Dashboard</a>
 
-<form action="/" method="post">
+<form action="/search" method="post">
 <input type="text" name="_method" value="artist">
 <input type="submit" value="Search Artist">
 </form>
 
-</p>
 	<table>
     <thead>
         <tr>
@@ -25,24 +24,14 @@
             <th scope="col">Action</th>
         </tr>
     </thead>
-   <%--  <tbody>
-        <c:forEach items="" var="">
+   <tbody>
+        <c:forEach items="${artistSongs}" var="song">
         <tr>
-        	<th><c:out value=""/></th>
-            <td><c:out value=""/></td>
-            <td><c:out value=""/></td>
-            <td><c:out value=""/></td>
-            <td><c:out value=""/></td>
-            <td><a href="">| Show |</a>
-            <a href="">| Edit |</a>
-            <form:form action="/books/${book.id}/destroy" method="post" modelAttribute="book">
-    		<input type="hidden" name="_method" value="delete">
-    		<input type="submit" value="Delete"/>
-			</form:form>
-            </td>
+        	<th><c:out value="${song.title}"/></th>
+            <td><c:out value="${song.rating}"/></td>
         </tr>
         </c:forEach>
-    </tbody> --%>
+    </tbody>
 </table>
 </body>
 </html>

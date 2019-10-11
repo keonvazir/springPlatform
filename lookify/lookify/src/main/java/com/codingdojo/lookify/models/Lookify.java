@@ -41,7 +41,7 @@ public class Lookify {
     
     public Lookify(Long id, String title, String artist, Integer rating) {
 		
-		this.id = id;
+//		this.id = id;
 		this.title = title;
 		this.artist = artist;
 		this.rating = rating;

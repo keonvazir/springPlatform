@@ -26,7 +26,7 @@ private final LookifyRepo lookifyRepository;
         return lookifyRepository.save(b);
     }
     // retrieves a book
-    public Lookify findBook(Long id) {
+    public Lookify findSong(Long id) {
         Optional<Lookify> optionalLookify = lookifyRepository.findById(id);
         if(optionalLookify.isPresent()) {
             return optionalLookify.get();
@@ -34,5 +34,14 @@ private final LookifyRepo lookifyRepository;
             return null;
         }
     }
+	public List<Lookify> findByArtist(String search) {
+		// TODO Auto-generated method stub
+		return lookifyRepository.findByArtistContaining(search);
+	}
+	public void deleteSong(Long id) {
+		// TODO Auto-generated method stub
+		lookifyRepository.deleteById(id);
+		
+	}
 
 }
