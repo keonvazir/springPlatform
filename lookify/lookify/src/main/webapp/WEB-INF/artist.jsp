@@ -11,7 +11,7 @@
 <p>Songs by <c:out value="${artist}"/> </p><a href="/dashboard">Dashboard</a>
 
 <form action="/search" method="post">
-<input type="text" name="_method" value="artist">
+<input type="text" name="artist">
 <input type="submit" value="Search Artist">
 </form>
 

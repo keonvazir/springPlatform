@@ -67,11 +67,6 @@ public class LookifyController {
 	}
 	
 	
-	@PostMapping("/search")
-	public String artistName(Model model, @RequestParam(value="artist") String artist) {
-		
-	}
-	
 	@RequestMapping("/search")
 	public String searchName(@RequestParam("artist") String artist, Model model) {
 		List<Lookify> artistSongs = lookifyService.findByArtist(artist);
