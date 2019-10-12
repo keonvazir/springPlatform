@@ -15,7 +15,10 @@ public interface LookifyRepo extends CrudRepository<Lookify, Long>{
 	List<Lookify> findAll();
 
 	
-List<Lookify> findByArtistContaining(String artist); 
+List<Lookify> findByArtistContaining(String artist);
+
+
+List<Lookify> findTop3ByOrderByRatingDesc(); 
 		
 }
 	

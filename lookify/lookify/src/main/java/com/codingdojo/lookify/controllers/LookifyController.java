@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,7 +38,7 @@ public class LookifyController {
 	}
 	
 	@RequestMapping("/search/topTen")
-	public String topTen() {
+	public String topSongs() {
 		return "topten.jsp";
 	}
 	@RequestMapping("/songs/{id}")

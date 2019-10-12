@@ -43,5 +43,12 @@ private final LookifyRepo lookifyRepository;
 		lookifyRepository.deleteById(id);
 		
 	}
+	public List<Lookify> searchArtist(String artist) {
+        return lookifyRepository.findByArtistContaining(artist);
+    }
+	public List<Lookify> topSongs() {
+	    // TODO Auto-generated method stub
+	    return lookifyRepository.findTop3ByOrderByRatingDesc();
+	}
 
 }
