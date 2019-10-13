@@ -34,6 +34,8 @@
         </tr>
         </c:forEach>
     </tbody>
-</table>
+</table><br>
+<a href="/students/new">New Student</a><br><br>
+<a href="/contact/new">Create Contact Info here...</a>
 </body>
 </html>

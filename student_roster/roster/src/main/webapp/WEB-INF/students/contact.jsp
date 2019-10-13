@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ page isErrorPage="true" %> 
+       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
  <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -13,37 +15,44 @@
 	<div class="container" style="text-align: center">
 	<h1>Contact Info</h1>
 	<br>
-	<form:form action="/students" method="post" modelAttribute="contact">
+	<form:form action="/contact/new" method="post" modelAttribute="contactObj">
 	<div class="form-group">
  		<p>
- 			<%-- <form:select class="form-control" name="contact">
- 			<option value="student"></option>
- 			</form:select> --%>
+ 			<form:select path="student">
+ 			<c:forEach items="${students}" var="student">
+ 			
+ 			<form:option value="${student.id}">
+ 			<c:out value="${student.firstname}"/><c:out value="${student.lastname}"/>
+ 			</form:option>
+ 			
+ 			</c:forEach>
+ 			</form:select>
  		</p>
     </div>
     <div class="form-group">
     <p>
         <form:label path="address">Address</form:label>
         <form:errors path="address"/>
-        <form:input path="address"/>
+        <form:input path="address" placeholder="Address"/>
     </p>
     </div>
     <div class="form-group">
     <p>
         <form:label path="city">City</form:label>
         <form:errors path="city"/>
-        <form:input path="city"/>
+        <form:input path="city" placeholder="City"/>
     </p>
     </div>
     <div class="form-group">
     <p>
         <form:label path="state">State</form:label>
         <form:errors path="state"/>
-        <form:input path="state"/>
+        <form:input path="state" placeholder="State"/>
     </p>
     </div>
     <input type="submit" class="btn btn-primary" value="Create"/>
-</form:form> 
+</form:form> <br>
+<a href="/students"><i>Back...</i></a>
 </div>
 </body>
 </html>

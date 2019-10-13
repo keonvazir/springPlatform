@@ -28,28 +28,41 @@ public class HomeController {
 		return "/students/show.jsp";
 	}
 	@GetMapping("/students/new")
-	public String newStudent(@ModelAttribute("student") Student student, Model model) {
-		List<Student> students = apiService.allStudents();
-		model.addAttribute("students", students);
+	public String newStudent(Model model) {
+		Student student = new Student();
+		model.addAttribute("studentObj", student);
 		return "/students/new.jsp";
 	}
 	@PostMapping("/students/new")
-	public String createStudent(@Valid @ModelAttribute("student") Student student, BindingResult result) {
+	public String createStudent(@Valid @ModelAttribute("studentObj") Student student, BindingResult result) {
 		if(result.hasErrors()) {
 			return "/students/new.jsp";
 		}
 		else {
 			apiService.createStudent(student);
-			return "redirect:/contact/new";
+			return "redirect:/students";
 		}
 	}
 	
 	
 	@GetMapping("/contact/new")
-	public String showContact(@ModelAttribute("contact") Contact contact, Model model) {
+	public String showContact(Model model) {
+		Contact contact = new Contact();
+		model.addAttribute("contactObj", contact);
 		List<Student> students = apiService.allStudents();
 		model.addAttribute("students", students);
 		return "/students/contact.jsp";
+	}
+	
+	@PostMapping("/contact/new")
+	public String createContact(@Valid @ModelAttribute("contactObj") Contact contact, BindingResult result) {
+		if(result.hasErrors()) {
+			return "/students/contact.jsp";
+		}
+		else {
+			apiService.createContact(contact);
+			return "redirect:/students";
+		}
 	}
 
 }

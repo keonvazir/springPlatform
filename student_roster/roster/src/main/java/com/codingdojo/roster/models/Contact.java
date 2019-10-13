@@ -28,7 +28,7 @@ public class Contact {
     private String address;
     @Size(min = 3, max = 200)
     private String city;
-    @Size(min = 3, max = 200)
+    @Size(min = 1, max = 200)
     private String state;
   
     

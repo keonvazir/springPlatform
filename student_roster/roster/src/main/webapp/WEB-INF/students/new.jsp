@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page isErrorPage="true" %> 
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -13,30 +14,31 @@
 	<div class="container" style="text-align: center">
 	<h1>New Student</h1>
 	<br>
-	<form:form action="/contact/new" method="post" modelAttribute="student">
+	<form:form action="/students/new" method="post" modelAttribute="studentObj">
 	<div class="form-group">
     <p>
-        <form:label path="firstname">First Name</form:label>
+        <form:label path="firstname">First Name</form:label> 
         <form:errors path="firstname"/>
-        <form:input path="firstname"/>
+        <form:input path="firstname" placeholder="First Name"/>
     </p>
     </div>
     <div class="form-group">
     <p>
         <form:label path="lastname">Last Name</form:label>
         <form:errors path="lastname"/>
-        <form:input path="lastname"/>
+        <form:input path="lastname" placeholder="Last Name"/>
     </p>
     </div>
     <div class="form-group">
     <p>
         <form:label path="age">Age</form:label>
         <form:errors path="age"/>
-        <form:input path="age"/>
+        <form:input path="age" placeholder="Age"/>
     </p>
     </div>
     <input type="submit" class="btn btn-primary" value="Create"/>
-</form:form> 
+</form:form> <br><br>
+<a href="/students"><i>Back...</i></a>
 </div>
 </body>
 </html>
