@@ -22,7 +22,7 @@
  			<c:forEach items="${students}" var="student">
  			
  			<form:option value="${student.id}">
- 			<c:out value="${student.firstname}"/><c:out value="${student.lastname}"/>
+ 			<c:out value="${student.firstname} "/><c:out value="${student.lastname}"/>
  			</form:option>
  			
  			</c:forEach>

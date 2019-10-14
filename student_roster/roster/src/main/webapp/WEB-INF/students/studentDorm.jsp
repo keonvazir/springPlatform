@@ -11,11 +11,22 @@
 
 </head>
 <body>
-<div class="container">
-<h1><c:out value="${dorm.name}"/></h1><h2>Test</h2>
-<form:form action="dorms/add" method="POST" modelAttribute="studentObj">
- <form:select path="student" class="form-control col-6 mb-2">
- 			<c:forEach items="${dorm.students}" var="student">
+<div class="container"><br>
+<h1><span class="text-danger"><c:out value="${dorm.name}"/></span></h1><br>
+
+<form action="/dorms/${dorm.id}/add" method="post">
+<label>Student :</label>
+<select name="student">
+<c:forEach items="${students}" var="student">
+<option value="${student.id}">${student.firstname} ${student.lastname}</option>
+</c:forEach>
+</select>
+<input class="btn btn-dark mb-2 mt-2" type="submit" value="Add">
+</form>
+
+<%-- form:form action="/dorms/${dorm.id}/add" method="POST" modelAttribute="dorm">
+ <form:select path="students" class="form-control col-6 mb-2">
+ 			<c:forEach items="${students}" var="student">
  			
  			<form:option value="${student.id}">
  			<c:out value="${student.firstname}"/><c:out value="${student.lastname}"/>
@@ -24,7 +35,8 @@
  			</c:forEach>
  			</form:select>
  			<input type="submit" class="btn btn-secondary" value="Add"/>
- 		</form:form>
+ 		</form:form> --%>
+ 		
  		<br>
 	<table class="table">
     <thead class="thead-dark">
@@ -35,10 +47,10 @@
         </tr>
     </thead>
    <tbody>
-        <c:forEach items="${students}" var="student">
+        <c:forEach items="${dorm.students}" var="student">
         <tr>
         	<th class="bg-primary"><c:out value="${student.firstname} ${student.lastname}"/></th>
-            <td class="bg-success"><a href="#">Remove</a></td>
+            <td class="bg-success"><a href="/dorms/${student.id}/destroy/${dorm.id}"><span style="color:yellow"><i>Remove</i></span></a></td>
         </tr>
         </c:forEach>
     </tbody>

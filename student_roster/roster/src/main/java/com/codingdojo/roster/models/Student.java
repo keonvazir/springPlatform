@@ -53,6 +53,7 @@ public class Student {
 
 	public Student(Long id,  String firstname, String lastname, Integer age, Contact contact, Dorm dorm) {
 		
+		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;

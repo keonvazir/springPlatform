@@ -14,7 +14,7 @@
 <div class="container">
 
 <h1>Dormitories</h1>
-<form:form action="/dorms/${dorm.id}" method="POST" modelAttribute="dormObj">
+<form:form action="/dorms/create" method="POST" modelAttribute="dormObj">
 <form:errors path="name"/>
 <form:input path="name" class="form-control col-6 mb-2" placeholder="Name"/>
 <input type="submit" class="btn btn-primary"/>

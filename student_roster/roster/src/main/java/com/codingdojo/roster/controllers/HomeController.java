@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.roster.models.Contact;
 import com.codingdojo.roster.models.Dorm;
@@ -46,7 +48,6 @@ public class HomeController {
 		}
 	}
 	
-	
 	@GetMapping("/contact/new")
 	public String showContact(Model model) {
 		Contact contact = new Contact();
@@ -71,13 +72,13 @@ public class HomeController {
 		return "dorm/newDorm.jsp";
 	}
 	
-	@PostMapping("/dorms/new")
-	public String createDorm(@Valid @ModelAttribute("dormObj") Dorm dorm, Student student, BindingResult result) {
+	@PostMapping("/dorms/create")
+	public String createDorm(@Valid @ModelAttribute("dormObj") Dorm dorm, BindingResult result) {
 		if(result.hasErrors()) {
 			return "dorm/newDorm.jsp";
 		}else {
 			apiService.createNewDorm(dorm);
-			return "redirect:/dorms/"+student.getDorm().getId();
+			return "redirect:/dorms/"+dorm.getId();
 		}
 	}
 	
@@ -85,19 +86,27 @@ public class HomeController {
 	public String showDorm(@PathVariable("id") Long id, Model model) {
 		Dorm dorm = apiService.getOneDorm(id);
 		model.addAttribute("dorm", dorm);
+		List<Student> students = apiService.allStudents();
+		model.addAttribute("students", students);
 		return "students/studentDorm.jsp";
 	}
 	
-	@PostMapping("/dorms/{id}")
-	public String addStudentToDorm(@Valid @ModelAttribute("studentObj") Student student, BindingResult result) {
-		if(result.hasErrors()) {
-			return "students/studentDorm.jsp";
-		}
-		else {
-			apiService.addStudentToDorm(student);
-			return "redirect:/dorms/"+student.getDorm().getId();
+	@PostMapping("/dorms/{id}/add")
+	public String addStudentToDorm(@PathVariable("id") Long dorm_id, @RequestParam("student") Long student_id, Model model) {
+		Student student = apiService.findStudent(student_id);
+		student.setDorm(apiService.findDorm(dorm_id));
+		apiService.createStudent(student);
+		return "redirect:/dorms/"+dorm_id;
 			
-		}
 	}
+	@RequestMapping("/dorms/{student_id}/destroy/{dorm_id}")
+	public String destroy(@PathVariable("student_id") Long student_id, @PathVariable("dorm_id") Long dorm_id) {
+		Student student = apiService.findStudent(student_id);
+		student.setDorm(null);
+		apiService.createStudent(student);
+		return "redirect:/dorms/"+dorm_id;
+	}
+	
+	
 
 }

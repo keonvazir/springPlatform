@@ -3,6 +3,7 @@ package com.codingdojo.roster.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,8 @@ private ApiService(StudentRepo studentRepo, ContactRepo contactRepo, DormRepo do
 		return studentRepo.findAll();
 	}
 	
-	public Student createStudent(Student s) {
-		return studentRepo.save(s);
+	public Student createStudent(Student student) {
+		return studentRepo.save(student);
 		
 	}
 	
@@ -53,18 +54,15 @@ private ApiService(StudentRepo studentRepo, ContactRepo contactRepo, DormRepo do
 		return contactRepo.save(c);		
 	}
 
-	public Dorm createNewDorm( Dorm dorm) {
+	public Dorm createNewDorm(@Valid Dorm dorm) {
 		// TODO Auto-generated method stub
 		return dormRepo.save(dorm);
 		
 	}
-	public List<Dorm> allDorms() {
-		return dormRepo.findAll();
-	}
 
-	public Student addStudentToDorm(Student student) {
+	public void addStudentToDorm(@Valid Student student) {
 		// TODO Auto-generated method stub
-		return studentRepo.save(student);
+		studentRepo.save(student);
 		
 	}
 
@@ -72,5 +70,16 @@ private ApiService(StudentRepo studentRepo, ContactRepo contactRepo, DormRepo do
 		// TODO Auto-generated method stub
 		return dormRepo.findById(id).orElse(null);
 	}
+
+	public Student findStudent(Long student_id) {
+		// TODO Auto-generated method stub
+		return studentRepo.findById(student_id).orElse(null);
+	}
+
+	public Dorm findDorm(Long dorm_id) {
+		// TODO Auto-generated method stub
+		return dormRepo.findById(dorm_id).orElse(null);
+	}
+
 	
 }
