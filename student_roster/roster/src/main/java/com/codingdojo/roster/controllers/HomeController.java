@@ -10,9 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.codingdojo.roster.models.Contact;
+import com.codingdojo.roster.models.Dorm;
 import com.codingdojo.roster.models.Student;
 import com.codingdojo.roster.services.ApiService;
 
@@ -62,6 +64,39 @@ public class HomeController {
 		else {
 			apiService.createContact(contact);
 			return "redirect:/students";
+		}
+	}
+	@GetMapping("/dorms/new")
+	public String newDorm(@ModelAttribute("dormObj") Dorm dorm) {
+		return "dorm/newDorm.jsp";
+	}
+	
+	@PostMapping("/dorms/new")
+	public String createDorm(@Valid @ModelAttribute("dormObj") Dorm dorm, Student student, BindingResult result) {
+		if(result.hasErrors()) {
+			return "dorm/newDorm.jsp";
+		}else {
+			apiService.createNewDorm(dorm);
+			return "redirect:/dorms/"+student.getDorm().getId();
+		}
+	}
+	
+	@GetMapping("/dorms/{id}")
+	public String showDorm(@PathVariable("id") Long id, Model model) {
+		Dorm dorm = apiService.getOneDorm(id);
+		model.addAttribute("dorm", dorm);
+		return "students/studentDorm.jsp";
+	}
+	
+	@PostMapping("/dorms/{id}")
+	public String addStudentToDorm(@Valid @ModelAttribute("studentObj") Student student, BindingResult result) {
+		if(result.hasErrors()) {
+			return "students/studentDorm.jsp";
+		}
+		else {
+			apiService.addStudentToDorm(student);
+			return "redirect:/dorms/"+student.getDorm().getId();
+			
 		}
 	}
 
