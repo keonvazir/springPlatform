@@ -135,10 +135,25 @@ public class HomeController {
 		
 	}
 	@GetMapping("/students/{student_id}")
-	public String addStudentToCourse(@PathVariable("student_id") Long student_id, Model model, @ModelAttribute("middleTableObj") CourseStudent courseStudent) {
+	public String showStudentToCourse(@PathVariable("student_id") Long student_id, Model model, @ModelAttribute("middleTableObj") CourseStudent courseStudent) {
 		Student student = apiService.getOneStudent(student_id);
+		List<Course> courses = apiService.allCourses();
+		model.addAttribute("courses", courses);
 		model.addAttribute("student", student);
+		
 		return "courses/addStudentToCourse.jsp";
+	}
+	
+	@PostMapping("/students/{student_id}/add")
+	public String addStudentToCourse(@PathVariable("student_id") Long student_id, @RequestParam("course") Long course_id, Model model) {
+		Course course = apiService.findCourse(course_id);
+		Student student = apiService.findStudent(student_id);
+		List<Course> courses = student.getCourses();
+		courses.add(course);
+		
+		apiService.createStudent(student);
+		return "redirect:/students/"+student_id;
+		
 	}
 }
 

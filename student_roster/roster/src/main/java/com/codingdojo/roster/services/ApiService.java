@@ -26,7 +26,7 @@ private final StudentRepo studentRepo;
 private final ContactRepo contactRepo;
 private final DormRepo dormRepo;
 private final CourseRepo courseRepo;
-private final CourseStudentRepo courseStudentRepo;
+
 
 @Autowired
 private ApiService(StudentRepo studentRepo, ContactRepo contactRepo, DormRepo dormRepo, CourseRepo courseRepo, CourseStudentRepo courseStudentRepo) {
@@ -34,7 +34,6 @@ private ApiService(StudentRepo studentRepo, ContactRepo contactRepo, DormRepo do
 	this.contactRepo = contactRepo;
 	this.dormRepo = dormRepo;
 	this.courseRepo = courseRepo;
-	this.courseStudentRepo = courseStudentRepo;
 }
 
 	public List<Student> allStudents() {
@@ -100,6 +99,16 @@ private ApiService(StudentRepo studentRepo, ContactRepo contactRepo, DormRepo do
 	public Student getOneStudent(Long student_id) {
 		// TODO Auto-generated method stub
 		return studentRepo.findById(student_id).orElse(null);
+	}
+
+	public List<Course> allCourses() {
+		// TODO Auto-generated method stub
+		return courseRepo.findAll();
+	}
+
+	public Course findCourse(Long course_id) {
+		// TODO Auto-generated method stub
+		return courseRepo.findById(course_id).orElse(null);
 	}
 
 	
