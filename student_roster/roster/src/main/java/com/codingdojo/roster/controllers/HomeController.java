@@ -155,6 +155,13 @@ public class HomeController {
 		return "redirect:/students/"+student_id;
 		
 	}
+	@RequestMapping("/students/{student_id}/destroy/{course_id}")
+	public String destroyDrop(@PathVariable("student_id") Long student_id, @PathVariable("course_id") Long course_id) {
+		Course course = apiService.findCourse(course_id);
+		course.setStudents(null);
+		apiService.createCourse(course);
+		return "redirect:/students/"+student_id;
+	}
 }
 
 
