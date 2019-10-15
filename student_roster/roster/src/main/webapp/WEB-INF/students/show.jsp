@@ -35,7 +35,11 @@
         </c:forEach>
     </tbody>
 </table><br>
+<div class="bottom" style="display:inline-block; text-align:center; width:300px; height:200px; margin-left:500px;">
 <a href="/students/new">New Student</a><br><br>
-<a href="/contact/new">Create Contact Info here...</a>
+<a href="/contact/new">Create Contact Info here...</a><br><br>
+<a href="/dorms/new">Dorm page!</a><br><br>
+<a href="/classes/new">New Class!</a>
+</div>
 </body>
 </html>

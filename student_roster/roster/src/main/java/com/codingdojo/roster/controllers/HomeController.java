@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.roster.models.Contact;
+import com.codingdojo.roster.models.Course;
+import com.codingdojo.roster.models.CourseStudent;
 import com.codingdojo.roster.models.Dorm;
 import com.codingdojo.roster.models.Student;
 import com.codingdojo.roster.services.ApiService;
@@ -107,6 +109,38 @@ public class HomeController {
 		return "redirect:/dorms/"+dorm_id;
 	}
 	
+	@GetMapping("/classes/new")
+	public String showCourse(@ModelAttribute("courseObj") Course course) {
+		return "courses/createCourse.jsp";
+		
+	}
 	
-
+	@PostMapping("/classes/create")
+	public String createCourse(@Valid @ModelAttribute("courseObj") Course course, BindingResult result) {
+		if(result.hasErrors()) {
+			return "courses/createCourse.jsp";
+		}else {
+			apiService.createCourse(course);
+			return "redirect:/classes/"+course.getId();
+		}
+		
+	}
+	@GetMapping("/classes/{course_id}")
+	public String showStudentTakingCourse(@PathVariable("course_id") Long course_id, Model model) {
+		Course course = apiService.getOneCourse(course_id);
+		model.addAttribute("course", course);
+		List<Student> students = apiService.allStudents();
+		model.addAttribute("students", students);
+		return "courses/showCourse.jsp";
+		
+	}
+	@GetMapping("/students/{student_id}")
+	public String addStudentToCourse(@PathVariable("student_id") Long student_id, Model model, @ModelAttribute("middleTableObj") CourseStudent courseStudent) {
+		Student student = apiService.getOneStudent(student_id);
+		model.addAttribute("student", student);
+		return "courses/addStudentToCourse.jsp";
+	}
 }
+
+
+

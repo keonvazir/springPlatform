@@ -1,9 +1,8 @@
 package com.codingdojo.roster.models;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,10 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -25,8 +21,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-@Table(name="students")
-public class Student {
+@Table(name="courses_students")
+public class CourseStudent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,57 +38,29 @@ public class Student {
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
-    @OneToOne(mappedBy="student", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    private Contact contact;
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="dorm_id")
-	private Dorm dorm;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(
-			name="courses_students",
-			joinColumns = @JoinColumn(name="student_id"),
-			inverseJoinColumns = @JoinColumn(name="course_id")
-			)
-	private List<Course> courses;
+	@JoinColumn(name= "student_id")
+	private Student student;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="course_id")
+	private Course course;
    
     
-    public Student() {
+    public CourseStudent() {
     	
     }
-	
-public Student(Long id, String firstname, String lastname,
-			Integer age, Date createdAt, Date updatedAt, Contact contact, Dorm dorm, List<Course> courses) {
-		
+    
+    
+    public CourseStudent(Long id, String firstname, String lastname, Integer age, Date createdAt, Date updatedAt, Student student, Course course) {
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-		this.contact = contact;
-		this.dorm = dorm;
-		this.courses = courses;
-	}
-
-
-//////////////////////
-	
-	public Dorm getDorm() {
-		return dorm;
-	}
-
-
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-
-	public void setDorm(Dorm dorm) {
-		this.dorm = dorm;
+		this.student = student;
+		this.course = course;
 	}
 
 
@@ -156,13 +124,23 @@ public Student(Long id, String firstname, String lastname,
 	}
 
 
-	public Contact getContact() {
-		return contact;
+	public Student getStudent() {
+		return student;
 	}
 
 
-	public void setContact(Contact contact) {
-		this.contact = contact;
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+
+	public Course getCourse() {
+		return course;
+	}
+
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 
