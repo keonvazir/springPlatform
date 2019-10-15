@@ -10,7 +10,7 @@
 </head>
 <body>
 	<br>
-	<h1>All Students</h1>
+	<h1 class="text-danger" style="text-align:center;">All Students</h1>
 	<br>
 	<table class="table">
     <thead class="thead-dark">
