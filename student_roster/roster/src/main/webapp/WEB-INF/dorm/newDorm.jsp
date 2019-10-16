@@ -11,14 +11,18 @@
 
 </head>
 <body>
-<div class="container">
+<div class="wrapper" style="background: linear-gradient(to top left, #33cccc 0%, #0099ff 100%); width:900px; height:800px; display:inline-block;">
 
-<h1>Dormitories</h1>
+<div class="container" style="background: linear-gradient(to top left, #33cccc 0%, #0099ff 100%); display:inline-block; width:800px; height:800px;
+"><br>
+
+<h1 class="text-danger">Dormitories</h1><br>
 <form:form action="/dorms/create" method="POST" modelAttribute="dormObj">
 <form:errors path="name"/>
-<form:input path="name" class="form-control col-6 mb-2" placeholder="Name"/>
-<input type="submit" class="btn btn-primary"/>
+<form:input path="name" class="form-control col-6 mb-2" placeholder="Name"/><br>
+<input type="submit" class="btn btn-warning"/>
 </form:form>
+</div>
 </div>
 </body>
 </html>

@@ -75,8 +75,6 @@ public Student(Long id, String firstname, String lastname,
 		this.courses = courses;
 	}
 
-
-//////////////////////
 	
 	public Dorm getDorm() {
 		return dorm;
