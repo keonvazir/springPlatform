@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,7 @@
 </head>
 <body>
 	<div class="container" style="text-align: center; display:inline-block;"><br>
+		
 		<h1 class="text-danger" style="display: inline-block;"><c:out value="${user.firstname}"/></h1><a href="/logout" style="display: inline-block; vertical-align: top; margin-left: 130px; margin-top: 10px">Logout</a><br><br>
 		
 		<p class="text-success" style="margin-right: 145px;">Here are some of the events in your state:</p><br>
@@ -32,8 +34,16 @@
             <td class="bg-success"><c:out value="${event.date}"/></td>
             <td class="bg-warning"><c:out value="${event.location}"/></td>
             <td class="bg-danger"><c:out value= "${event.planner.firstname}"/></td>
-            <td class="bg-info"><a href="#"><span class="text-warning">Join</span></a>
-            <a href="/events/${event.id}/edit"><span class="text-primary"><span class="text-danger">|</span> Edit</span></a></td>
+            
+            <td class="bg-info">
+             
+             <c:if test ="${event.planner.id == user.id}">
+             <a href="#"><span class="text-warning">Edit</span></a><span class="text-danger"> | </span>
+             <a href="#"><span class="text-warning">Delete</span></a></c:if>
+             <c:if test = "${event.planner.id != user.id}">
+            <a href="#"><span class="text-warning">Join </span></a></c:if></td>
+            
+           
         </tr>
         </c:forEach>
     </tbody>
@@ -59,7 +69,7 @@
             <td class="bg-warning"><c:out value="${event.location}"/></td>
             <td class="bg-success"><c:out value="${event.state}"/></td>
             <td class="bg-danger"><c:out value="${event.planner.firstname}"/></td>
-            <td class="bg-info"><a href="#"><span class="text-warning">Join</span></a></td>
+            <td class="bg-info"><a href="#"><span class="text-warning">Join</span></a>
         </tr>
         </c:forEach>
     </tbody>

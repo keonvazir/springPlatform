@@ -15,7 +15,7 @@
 		<h1 class="text-danger"><c:out value="${event.name}"/></h1><br>
 		<h4 class="text-success">Edit Event</h4><br>
 		
-	<form:form action="/edit/${id}" method="post" modelAttribute="event">
+	<form:form action="/edit/${event.id}" method="post" modelAttribute="event">
 	<input type="hidden" name="_method" value="put">
 	<div class="form-group">
     <p>
@@ -43,6 +43,7 @@
         </form:select>
     </p> 
     </div>
+    <form:hidden path="planner" value="${user.id}"/>
     <input type="submit" class="btn btn-primary" value="Edit"/>
 </form:form> 
 </div>

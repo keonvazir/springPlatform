@@ -130,7 +130,8 @@ public class UsersController {
     //populate name of attendees
     
     @GetMapping("/events/{event_id}/edit")
-    public String editEvent(@PathVariable("event_id") Long event_id, Model model) {
+    public String editEvent(@PathVariable("event_id") Long event_id, Model model, HttpSession session) {
+    	
     	Event event = userService.findEvent(event_id);
     	model.addAttribute("states", states);
     	model.addAttribute("event", event);
