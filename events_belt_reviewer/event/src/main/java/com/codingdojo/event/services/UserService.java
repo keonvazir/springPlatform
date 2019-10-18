@@ -101,6 +101,20 @@ public class UserService {
 		return this.eventRepo.save(event);
 		
 	}
+	public Event getOneEvent(Long id) {
+		return eventRepo.findById(id).orElse(null);
+	}
+
+	public void updateUser(User attendee) {
+		// TODO Auto-generated method stub
+		userRepository.save(attendee);
+	}
+
+	public void deleteEvent(Long event_id) {
+		// TODO Auto-generated method stub
+		eventRepo.deleteById(event_id);
+		
+	}
 
 
 }

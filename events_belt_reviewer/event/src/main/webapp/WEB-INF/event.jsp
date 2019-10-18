@@ -3,6 +3,8 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>  
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,19 +33,28 @@
         <c:forEach items="${eventsIn}" var="event">
         <tr>
         	<th class="bg-primary"><a href="/events/${event.id}"><span class="text-warning"><c:out value="${event.name}"/></span></a></th>
-            <td class="bg-success"><c:out value="${event.date}"/></td>
+            <td class="bg-success"><fmt:formatDate pattern="MMMM dd, yyyy" value="${event.date}"/></td>
             <td class="bg-warning"><c:out value="${event.location}"/></td>
             <td class="bg-danger"><c:out value= "${event.planner.firstname}"/></td>
             
             <td class="bg-info">
              
              <c:if test ="${event.planner.id == user.id}">
-             <a href="#"><span class="text-warning">Edit</span></a><span class="text-danger"> | </span>
-             <a href="#"><span class="text-warning">Delete</span></a></c:if>
+             <a href="/eidt/${id}"><span class="text-warning">Edit</span></a><span class="text-danger"> | </span>
+             <a href="/events/${event.id}/destroy"><span class="text-warning">Delete</span></a></c:if>
              <c:if test = "${event.planner.id != user.id}">
-            <a href="#"><span class="text-warning">Join </span></a></c:if></td>
-            
-           
+             <c:choose>
+             <c:when test="${event.attendees.contains(user)}">
+             <p><i>Joining</i> <a href="/events/${event.id}/cancel"><span class="text-danger">Cancel</span></a></p>
+             </c:when>
+             
+             <c:otherwise>
+             <a href="/events/${event.id}/addUser"><span class="text-warning">Join </span></a>
+             </c:otherwise>
+          	
+            </c:choose>
+           </c:if>
+           </td>
         </tr>
         </c:forEach>
     </tbody>
@@ -64,12 +75,12 @@
    <tbody>
         <c:forEach items="${eventsOut}" var="event">
         <tr>
-        	<th class="bg-primary"><a href="#"><span class="text-warning"><c:out value="${event.name}"/></span></a></th>
-            <td class="bg-success"><c:out value="${event.date}"/></td>
+        	<th class="bg-primary"><a href="/events/${event.id}"><span class="text-warning"><c:out value="${event.name}"/></span></a></th>
+            <td class="bg-success"><fmt:formatDate pattern="MMMM dd, YYYY" value="${event.date}"/></td>
             <td class="bg-warning"><c:out value="${event.location}"/></td>
             <td class="bg-success"><c:out value="${event.state}"/></td>
             <td class="bg-danger"><c:out value="${event.planner.firstname}"/></td>
-            <td class="bg-info"><a href="#"><span class="text-warning">Join</span></a>
+            <td class="bg-info"><a href="/events/${event.id}/addUser"><span class="text-warning">Join</span></a>
         </tr>
         </c:forEach>
     </tbody>

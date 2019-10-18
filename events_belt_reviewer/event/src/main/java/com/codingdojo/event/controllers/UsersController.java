@@ -74,6 +74,7 @@ public class UsersController {
     	}
         // else, add error messages and return the login page
     }
+    
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         // invalidate session
@@ -126,7 +127,7 @@ public class UsersController {
     	return "show.jsp";
     	
     }
-    //insert post mapping for show event 
+    //insert post mapping for show event message wall 
     //populate name of attendees
     
     @GetMapping("/events/{event_id}/edit")
@@ -148,5 +149,34 @@ public class UsersController {
     	}
     }
     
-    
+   @GetMapping("/events/{event_id}/addUser")
+   public String addUserToEvent(HttpSession session, @PathVariable("event_id") Long event_id) {
+	   Long userId = (Long) session.getAttribute("userId");
+	   User attendee = userService.findUserById(userId);
+	   Event attending_event = userService.findEvent(event_id);
+	   List<User> attendees = attending_event.getAttendees();
+	   attendees.add(attendee);
+	   attending_event.setAttendees(attendees);
+	   userService.updateUser(attendee);
+	   System.out.println("made it");
+	   return "redirect:/events";
+   }
+   
+   @GetMapping("/events/{event_id}/cancel")
+   public String cancel(HttpSession session, @PathVariable("event_id") Long event_id) {
+	   Long userId = (Long) session.getAttribute("userId");
+	   User attendee = userService.findUserById(userId);
+	   Event attending_event = userService.findEvent(event_id);
+	   List<User> attendees = attending_event.getAttendees();
+	   attendees.remove(attendee);
+	   attending_event.setAttendees(attendees);
+	   userService.updateUser(attendee);
+	   return "redirect:/events";
+   }
+    @GetMapping("/events/{event_id}/destroy")
+    public String destroy(@PathVariable("event_id") Long event_id) {
+    	userService.deleteEvent(event_id);
+    	return "redirect:/events";
+    	
+    }
 }
