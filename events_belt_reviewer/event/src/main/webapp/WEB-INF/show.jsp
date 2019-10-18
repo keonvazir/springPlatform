@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -30,7 +30,7 @@
    <tbody>
         <c:forEach items="${event.attendees}" var="attendee">
         <tr>
-        	<th class="bg-primary"><a href="#"><span class="text-warning"><c:out value="${attendee.firstname}"/></span></a></th>
+        	<th class="bg-primary"><a href="#"><span class="text-warning"><c:out value="${attendee.firstname} "/><c:out value=" ${attendee.lastname}"/></span></a></th>
             <td class="bg-success"><c:out value="${attendee.location}"/></td>
             
         </tr>

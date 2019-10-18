@@ -95,10 +95,10 @@ public class UsersController {
     	String state = user.getState();
     	List<Event> eventsIn = userService.eventsInState(state);
     	model.addAttribute("eventsIn", eventsIn);
-//    	Event events = new Event();
+
     	List<Event> eventsOut = userService.eventsNotInState(state);
     	model.addAttribute("eventsOut", eventsOut);
-//    	model.addAttribute("newEvent", events);
+
     	List<User> users = userService.allUsers();
     	model.addAttribute("users", users);
     	model.addAttribute("events", userService.allEvents());
@@ -158,7 +158,7 @@ public class UsersController {
 	   attendees.add(attendee);
 	   attending_event.setAttendees(attendees);
 	   userService.updateUser(attendee);
-	   System.out.println("made it");
+//	   System.out.println("made it");
 	   return "redirect:/events";
    }
    

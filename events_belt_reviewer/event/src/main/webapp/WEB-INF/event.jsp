@@ -80,7 +80,19 @@
             <td class="bg-warning"><c:out value="${event.location}"/></td>
             <td class="bg-success"><c:out value="${event.state}"/></td>
             <td class="bg-danger"><c:out value="${event.planner.firstname}"/></td>
-            <td class="bg-info"><a href="/events/${event.id}/addUser"><span class="text-warning">Join</span></a>
+            <td class="bg-info">
+            <c:if test="${event.planner.id != user.id}">
+            <c:choose>
+            <c:when test="${event.attendees.contains(user)}">
+            <p><i>Joining</i> <a href="/events/${event.id}/cancel"><span class="text-danger">Cancel</span></a></p>
+            </c:when>
+            
+            <c:otherwise>
+            <p><a href="/events/${event.id}/addUser"><span class="text-warning">Join</span></a></p>
+            </c:otherwise>
+            </c:choose>
+            </c:if>
+            </td>
         </tr>
         </c:forEach>
     </tbody>
