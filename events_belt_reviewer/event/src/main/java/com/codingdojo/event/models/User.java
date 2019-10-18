@@ -58,8 +58,10 @@ public class User {
         )
     private List<Event> eventsAttending;
     
+    
     @OneToMany(mappedBy="planner", fetch=FetchType.LAZY)
     private List<Event> eventsPlanned;
+    
     
     public User() {
     }

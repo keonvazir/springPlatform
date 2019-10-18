@@ -40,7 +40,7 @@
             <td class="bg-info">
              
              <c:if test ="${event.planner.id == user.id}">
-             <a href="/eidt/${id}"><span class="text-warning">Edit</span></a><span class="text-danger"> | </span>
+             <a href="/events/${event.id}/edit"><span class="text-warning">Edit</span></a><span class="text-danger"> | </span>
              <a href="/events/${event.id}/destroy"><span class="text-warning">Delete</span></a></c:if>
              <c:if test = "${event.planner.id != user.id}">
              <c:choose>
