@@ -1,0 +1,5 @@
+package com.thomas.login.configurations;
+
+public class Config {
+
+}

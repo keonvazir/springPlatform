@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.security.oauth2.client.registration.ClientRegistrationRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.security.oauth2.client.registration.ClientRegistration"/>
+    <fullyQualifiedTypeName name="org.springframework.core.ResolvableType"/>
+    <fullyQualifiedTypeName name="org.springframework.security.oauth2.client.web.HttpSessionOAuth2AuthorizationRequestRepository"/>
+</qualifiedTypeNameHistroy>

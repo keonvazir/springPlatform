@@ -1,0 +1,6 @@
+https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=483305695375-q90tm3nfe5o57ad57po24lblh0ktecji&scope=openid%20profile%20email&state=PJAclgy4MuIic5e66MG7Xf3UWkoxctagX-o1peWJkN8%3D&redirect_uri=http://localhost:8080/login/oauth2/code/google
+
+
+
+
+https://www.facebook.com/v2.8/dialog/oauth?response_type=code&client_id=c44d5dffcdea537e5916&scope=public_profile%20email&state=bMX9RZ7lt36LgW0A9pK9gySqGfvvaUw0HXPMElrRJBE%3D&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Flogin%2Foauth2%2Fcode%2Ffacebook

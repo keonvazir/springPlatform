@@ -1,0 +1,5 @@
+package com.thomas.login.api;
+
+public class TjeckApplication {
+
+}

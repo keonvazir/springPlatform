@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container">
+	    
+	    <h1 class="offset-md-3" >Login</h1>
+	    
+	    <p><c:out value="${error}" /></p>
+	    
+	    <form class="form-group col-6 offset-md-3" method="post" action="/login">
+	        <p class="form-group">
+	            <label for="email">Email</label>
+	            <input class="form-control" type="text" id="email" name="email"/>
+	        </p>
+	        <p class="form-group">
+	            <label for="password">Password</label>
+	            <input class="form-control" type="password" id="password" name="password"/>
+	        </p>
+	        <p>
+	        <input class="btn btn-primary" type="submit" value="Login!"/>
+	        <i>Don't have an account? </i><a href="/signup">Signup!</a>
+	        </p>
+	    </form>
+	    <a href="http://localhost:8080/https://github.com/login?client_id=c44d5dffcdea537e5916&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3Dc44d5dffcdea537e5916%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A8080%252Flogin%252Foauth2%252Fcode%252Fgithub%26response_type%3Dcode%26scope%3Dread%253Auser%26state%3D3ZbXldXuci1_kbUbCtzma1z_OdVyh2hIiecGozY9_OI%253D">Sign in!</a>
+    </div>    
+</body>
+</html>

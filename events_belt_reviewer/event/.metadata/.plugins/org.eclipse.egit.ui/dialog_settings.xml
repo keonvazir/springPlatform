@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="GitSelectRepositoryPage.lastRepository" value="/Users/kvazir/git/tjek/.git"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/CPC464/tjek"/>
+		<item value="file:////Users/kvazir/Downloads/GitHub Desktop 2.app"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="keonvazir &lt;54293518+keonvazir@users.noreply.github.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="keonvazir &lt;54293518+keonvazir@users.noreply.github.com&gt;"/>
+	</list>
+	<section name="GitImportWizard">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="743"/>
+		<item key="DIALOG_Y_ORIGIN" value="339"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="/Users/kvazir/git/tjek/.git">
+			<item value="false"/>
+			<item value="keonvazir &lt;54293518+keonvazir@users.noreply.github.com&gt;"/>
+			<item value="Merge branch &apos;master&apos; into gitOauth&#x0A;&#x0A;Conflicts:&#x0A;&#x09;.classpath&#x0A;&#x09;.project&#x0A;&#x09;.settings/org.eclipse.wst.common.component&#x0A;&#x09;target/classes/application.properties&#x0A;&#x09;target/classes/com/thomas/login/controllers/HomeController.class&#x0A;&#x09;target/classes/com/thomas/login/models/User.class&#x0A;&#x09;target/m2e-wtp/web-resources/META-INF/MANIFEST.MF&#x0A;&#x09;target/m2e-wtp/web-resources/META-INF/maven/com.thomas.login/login/pom.properties&#x0A;&#x09;target/m2e-wtp/web-resources/META-INF/maven/com.thomas.login/login/pom.xml&#x0A;"/>
+			<item value="keonvazir &lt;54293518+keonvazir@users.noreply.github.com&gt;"/>
+			<item value="bdf05b526c620349d73ea5a912242b677ca6de18"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="589"/>
+		<item key="DIALOG_Y_ORIGIN" value="173"/>
+		<item key="DIALOG_WIDTH" value="650"/>
+		<item key="DIALOG_HEIGHT" value="439"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.fetch.FetchResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="420"/>
+		<item key="DIALOG_Y_ORIGIN" value="146"/>
+		<item key="DIALOG_WIDTH" value="600"/>
+		<item key="DIALOG_HEIGHT" value="439"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.MergeTargetSelectionDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="458"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
+		<item key="DIALOG_WIDTH" value="525"/>
+		<item key="DIALOG_HEIGHT" value="679"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.merge.MergeResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="352"/>
+		<item key="DIALOG_Y_ORIGIN" value="312"/>
+		<item key="DIALOG_WIDTH" value="736"/>
+		<item key="DIALOG_HEIGHT" value="189"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+</section>

@@ -1,0 +1,16 @@
+spring.mvc.view.prefix = /WEB-INF/
+spring.datasource.url=jdbc:mysql://localhost:3306/tjek_schema?&serverTimezone=UTC 
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.security.oauth2.client.registration.github.client-id=c44d5dffcdea537e5916
+spring.security.oauth2.client.registration.github.client-secret=64588c5b0140ad901f943864199e168832c68b0a
+
+spring.security.oauth2.client.registration.facebook.client-id=c44d5dffcdea537e5916
+spring.security.oauth2.client.registration.facebook.client-secret=64588c5b0140ad901f943864199e168832c68b0a
+
+spring.security.oauth2.client.registration.google.client-id=483305695375-q90tm3nfe5o57ad57po24lblh0ktecji
+spring.security.oauth2.client.registration.google.client-secret=RhLjS06n0x1WISlAuYalJq-u
+
+spring.thymeleaf.prefix=classpath:/templates-2/
+spring.jpa.hibernate.ddl-auto=update
